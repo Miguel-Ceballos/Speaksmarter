@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('content_uri', 255);
             $table->string('pdf_uri', 255);
             $table->foreignId('level_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->boolean('isFree')->default(false);
             $table->timestamps();
         });
     }
