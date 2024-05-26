@@ -7,13 +7,15 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+
+    const NUMBER_OF_ITEMS_PER_PAGE = 25;
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        define('NUMBER_OF_ITEMS_PER_PAGE', 25);
-        return inertia('Categories/Index', [ 'categories' => Category::paginate(NUMBER_OF_ITEMS_PER_PAGE) ]);
+        return inertia('Categories/Index', [ 'categories' => Category::paginate(self::NUMBER_OF_ITEMS_PER_PAGE) ]);
     }
 
     /**
